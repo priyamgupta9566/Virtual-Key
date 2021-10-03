@@ -34,6 +34,8 @@ public class Welcome
 		while(flag)
 		{
 			menu1();
+			try
+			{
 			System.out.println("Enter your choice : ");
 			int choice = sc.nextInt();
 			switch(choice)
@@ -50,11 +52,9 @@ public class Welcome
 				{
 				case 1:
 					func.addFile();
-					System.out.println("File added.");
 					continue;
 				case 2:
 					func.deleteFile();
-					System.out.println("File deleted.");
 					continue;
 				case 3:
 					func.searchFile();
@@ -75,7 +75,12 @@ public class Welcome
 			default:
 				System.out.println("Invalid choice. Please enter a valid choice.");
 			}
-
+			}
+			catch(InputMismatchException e)
+			{
+				System.out.println("Enter a correct choice..");
+				break;
+			}
 		}
 		sc.close();
 		
@@ -83,3 +88,4 @@ public class Welcome
 	}
 
 }
+
